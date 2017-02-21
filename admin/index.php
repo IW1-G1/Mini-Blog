@@ -1,5 +1,7 @@
 
-<?php include "../header.php"; ?>
+<?php include "../header.php";
+redirectNotAdmin();
+?>
 
 <div id="page_title">
       <h6>Administration</h6>
