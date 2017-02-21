@@ -1,5 +1,4 @@
-<?php include "../../header.php";?><?php
-
+<?php include "../../header.php";
 
 $title= $_POST['title'];
 $description= $_POST['description'];
@@ -10,4 +9,3 @@ if(isset($title) && isset($description)) {
         header('Location: ../article.php');
     }
 }
-?>

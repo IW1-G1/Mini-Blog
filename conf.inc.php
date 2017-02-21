@@ -10,13 +10,15 @@
   function redirectNotAdmin(){
     $auth = new Authentification();
     if($auth->isConnected()){
-      $bdd = new PDO('mysql:host=localhost;dbname=mini_blog;charset=utf8', 'root', '');
-      $statement = $bdd->prepare("SELECT id FROM mb_users WHERE username = :username");
+      $bdd = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PWD);
+      $statement = $bdd->prepare("SELECT id_user FROM mb_users WHERE username = :username");
       $statement->execute(array(':username' => $_SESSION['pseudo']));
-      $userId = $statement->fetchAll();
-        if(!$auth->isAdmin($userId)){
+      $userId = $statement->fetch();
+
+        if(!$auth->isAdmin($userId['id_user'])){
           header("Location: ../index.php");
           die();
         }
-    }
+    } else
+        header("Location: ../index.php");
   }

@@ -1,5 +1,6 @@
 <?php
 include "../../header.php";
+redirectNotAdmin();
 
 $sql = $bdd->query("SELECT * FROM mb_article WHERE `id_article` = '" . $_POST['id_article'] . "'");
 while($row=$sql->fetch(PDO::FETCH_OBJ)) {

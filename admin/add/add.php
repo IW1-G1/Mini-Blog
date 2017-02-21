@@ -1,5 +1,4 @@
-<p>
-    <?php include "../../header.php";?><?php
+    <?php include "../../header.php";
 
     $title= $_POST['title'];
     $description= $_POST['description'];
@@ -27,4 +26,4 @@
         }
     }
     header('Location: ../article.php');
-    ?></p>
+    ?>

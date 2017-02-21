@@ -90,26 +90,12 @@ class Authentification
   }
 
   public function isAdmin($userId){
-    $bdd = new PDO('mysql:host=localhost;dbname=mini_blog;charset=utf8', 'root', '');
-    $statement = $bdd->prepare("SELECT admin FROM mb_users WHERE id = :id");
+    $bdd = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PWD);
+    $statement = $bdd->prepare("SELECT admin FROM mb_users WHERE id_user = :id");
     $statement->execute(array(':id' => $userId));
     $adminParam = $statement->fetchAll();
 
     if($adminParam[0][0]=="1"){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
-
-  public function isBanned($userId){
-    $bdd = new PDO('mysql:host=localhost;dbname=mini_blog;charset=utf8', 'root', '');
-    $statement = $bdd->prepare("SELECT admin FROM mb_users WHERE id = :id");
-    $statement->execute(array(':id' => $userId));
-    $adminParam = $statement->fetchAll();
-
-    if($adminParam[0][0]=="-1"){
       return true;
     }
     else{

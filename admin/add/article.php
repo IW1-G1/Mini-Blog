@@ -1,4 +1,6 @@
-<?php include "../../header.php";?>
+<?php include "../../header.php";
+redirectNotAdmin();
+?>
 
 <div class="section admin">
     <h2>Gestion des articles</h2>
